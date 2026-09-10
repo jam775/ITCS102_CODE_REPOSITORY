@@ -1,32 +1,46 @@
 Sender = input("input name --->")
 
-Type of item = int(input("input type of item ---->"))
+Type_of_item = input("input type of item ---->")
 
-is_Fragile = bool(input("is your item a fragile --> ?  "))
-
-if is_Fragile == True:
-	print("we will be very carefull")
+is_Fragile = bool(input("is your item a fragile? (True or False) --->"))
+if is_Fragile == "True":
+    print("we will be very carefull")
+    
 else:
-	print("copy that")
+    print("copy that")
 
-weight = input("input name --->")
-print("that age is considered as ")
+weight = float(input("Enter weight (kg): "))
+distance = float(input("Enter distance (km): "))
+is_Express = bool(input("Is it express? (True or False)"))
+is_international = bool("Is it international? (True or False?-->)")
 
+base_cost = (weight * 2.50) + (distance * 0.15)
 
-if age >= 1 and age <= 5: 
-       print("infant")
-elif age >= 6 and age <= 12: 
-       print("kid")
-elif age >= 13 and age <= 19: 
-       print("teenager")
-elif age >= 20 and age <= 29: 
-       print("early adulthood")
-elif age >= 30 and age <= 48: 
-       print("adult")
-elif age >= 41 and age <= 59: 
-       print("advance adulthood")
-elif age >= 60 and age <= 150: 
-       print("senior")
+if weight < 2.0 and distance <= 100 and not is_Express and not is_international:
+    total = 0.00
+	
+elif is_international and is_Express:
+    total = (base_cost * 1.40) + 50
+
+elif is_Express or (is_international and weight > 20):
+    total = (base_cost * 1.20) + 25
+
+elif weight > 30 or distance > 1000:
+    total = base_cost + 30
 
 else:
-       print("invalid")
+    print("total base_cost")
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
