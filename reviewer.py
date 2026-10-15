@@ -1,4 +1,4 @@
-age = int(input(input age >>>))
+ age = int(input(input age >>>))
 monthly_revenue = float(input("how much is you mothly revenue >>>>"))
 credit_score = int(input("your credit score >>>"))
 yrs_in_business = float("input( years in business >>"))
@@ -23,6 +23,17 @@ if age >= 21 and yrs >= 2.0 and has_defaults == False:
             print("Revenue lower than 50k")
             base_fee = max_loan * 0.025
             print("Base fee rate is set to", base_fee)
+        if collateral_value >= max_loan:
+            print("Collateral", collateral, "with a value of", collateral_value, "is Accepted")
+        else:
+            print("Rejected: Insufficient collateral value for",collateral)
+
+        surge_fee_rate = max_loan * base_fee
+        if max_loan % 500 != 0:
+            print("Additional Charge Added")
+            surge_fee_rate += 250
+            print("Updated base fee is",base_fee)
+            
     elif credit_score >= 620 and credit_score < 720:
         print("Credit score within range of 620 to 720")
         max_loan = monthly_revenue * 1.5
@@ -35,6 +46,9 @@ if age >= 21 and yrs >= 2.0 and has_defaults == False:
             print("business year is less than 5 yrs")
             base_fee = max_loan * 0.035
             print("Base fee rate is set to", base_fee)
+    elif credit_score < 620 and credit_score >= 1:
+        print("Credit score is too low")
+
     else:
         print("INVALID")
 else:
